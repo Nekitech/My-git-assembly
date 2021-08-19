@@ -48,8 +48,6 @@ function fonts() {
     src('app/fonts/**/*.ttf')
         .pipe(ttf2woff())
         .pipe(dest('app/fonts'))
-    src('app/fonts/**/*.otf')
-        .pipe()
     return src('app/fonts/**/*.ttf')
         .pipe(ttf2woff2())
         .pipe(dest('app/fonts'))
