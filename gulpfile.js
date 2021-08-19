@@ -16,6 +16,8 @@ const autoprefixer = require('gulp-autoprefixer')
 const imagemin = require('gulp-imagemin')
 const del = require('del')
 const webp = require('gulp-webp')
+const ttf2woff = require('gulp-ttf2woff')
+const ttf2woff2 = require('gulp-ttf2woff2')
 
 
 
@@ -41,6 +43,16 @@ function browsersync() {
         }
     })
     
+}
+function fonts() {
+    src('app/fonts/**/*.ttf')
+        .pipe(ttf2woff())
+        .pipe(dest('app/fonts'))
+    src('app/fonts/**/*.otf')
+        .pipe()
+    return src('app/fonts/**/*.ttf')
+        .pipe(ttf2woff2())
+        .pipe(dest('app/fonts'))
 }
 
 function images() {
@@ -103,7 +115,7 @@ exports.browsersync = browsersync
 exports.scripts = scripts
 exports.images = images
 exports.cleanDist = cleanDist
-
+exports.fonts = fonts
 
 
 
