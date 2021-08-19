@@ -59,7 +59,9 @@ function images() {
             ]
         ))
         .pipe(dest('dist/images'))
-        .pipe(webp())
+        .pipe(webp({
+            quality: 70
+        }))
         .pipe(dest('dist/images'))
 }
 
