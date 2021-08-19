@@ -15,6 +15,7 @@ const uglify = require('gulp-uglify-es').default
 const autoprefixer = require('gulp-autoprefixer')
 const imagemin = require('gulp-imagemin')
 const del = require('del')
+const webp = require('gulp-webp')
 
 
 
@@ -57,6 +58,8 @@ function images() {
                 })
             ]
         ))
+        .pipe(dest('dist/images'))
+        .pipe(webp())
         .pipe(dest('dist/images'))
 }
 
